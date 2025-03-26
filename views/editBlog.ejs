@@ -1,0 +1,20 @@
+<%- include("partials/header.ejs") %>
+
+<h1>Edit your post</h1>
+
+<form action="/submit" method="POST">
+  <input type="hidden" name="index" value="<%= index %>">
+
+  <label for="title">Title:</label>
+  <input type="text" id="text" name="title" required value="<%=  blogEntry.title  %>">
+
+  <label for="author">Author:</label>
+  <input type="text" id="text" name="author" required value="<%= blogEntry.author %>">
+
+  <label for="feedback">Feedback:</label>
+  <input type="text" id="text" name="feedback" required value="<%= blogEntry.feedback %>">
+
+  <input type="submit" value="Submit Review">
+  </form>
+
+<%- include("partials/footer.ejs") %>

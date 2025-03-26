@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<%- include("partials/header.ejs") %>
+
+<head>
+  <title>Book Blog</title>
+</head>
+
+<body>
+
+  <div>
+    <img src="images/000024.JPG" class="img-head" alt="...">
+    <h1>Tell us about the latest book you read! 📙</h1>
+  </div>
+
+    <form action="/submit" method="POST">
+    <label for="title">Title:</label>
+    <input type="text" id="text" name="title" required>
+
+    <label for="author">Author:</label>
+    <input type="text" id="text" name="author" required>
+
+    <label for="feedback">Feedback:</label>
+    <input type="text" id="text" name="feedback" required>
+
+    <input type="submit" value="Submit Review">
+    </form>
+
+
+  <div class="blogEntries">
+    <% for (let i = blogEntries.length - 1; i >= 0; i--) { %>
+      <div class="blogEntry"> 
+        <h2>Entry N#: <%= i + 1 %></h2>
+        <p>Title: <%= blogEntries[i].title %></p>
+        <p>Author: <%= blogEntries[i].author %></p>
+        <p>Feedback: <%= blogEntries[i].feedback %></p>
+
+      <form action="/edit" method="POST">
+        <input type="text" id="text" name="index" required value="<%= i %>" hidden>
+        <button type="submit">Edit Entry</button>
+      </form>
+      
+      <form action="/delete" method="POST">
+        <input type="text" id="text" name="index" required value="<%= i %>" hidden>
+        <button type="submit">Delete Entry</button>
+      </form>
+      </div>
+  <% } %>
+    </div>
+
+</body>
+
+<%- include("partials/footer.ejs") %>
+
+</html>
+
+<body>
+
+</body>
+
+
